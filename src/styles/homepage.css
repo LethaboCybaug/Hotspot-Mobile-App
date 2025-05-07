@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .homepage-container {
     background-color:#ccccccd8; 
     color: #000;
@@ -44,4 +45,52 @@
       text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     }
   }
+=======
+.homepage-container {
+    background-color:#ccccccd8; 
+    color: #000;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 1s ease-in-out;
+    position: relative;
+  }
+  
+  .page-exit {
+    opacity: 0;
+  }
+  
+  .hotspot-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(90deg,  black, white,red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite ease-in-out;
+    text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.4);
+    letter-spacing: 0.1em;
+  }
+  
+  /* Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+    100% {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+  }
+>>>>>>> 2c59cd9 (Added home page and resport)
   

@@ -1,0 +1,123 @@
+/* signin.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.signin-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #d60000;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.signin-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #d60000;
+  box-shadow: 0 0 0 2px rgba(214, 0, 0, 0.1);
+}
+
+.error-message {
+  color: #d60000;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.login-button {
+  background-color: #d60000;
+  color: #fff;
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #b30000;
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.signup-navigation-button {
+  background-color: transparent;
+  color: #d60000;
+  border: 2px solid #d60000;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-navigation-button:hover {
+  background-color: #d60000;
+  color: #fff;
+}
+
+/* Responsive for mobile */
+@media (max-width: 500px) {
+  .signin-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+
+  .signin-title {
+    font-size: 2rem;
+  }
+
+  .login-button,
+  .signup-navigation-button {
+    font-size: 1rem;
+  }
+}

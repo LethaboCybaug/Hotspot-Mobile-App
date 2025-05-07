@@ -9,7 +9,10 @@ android {
 
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
+<<<<<<< HEAD
     implementation project(':capacitor-community-text-to-speech')
+=======
+>>>>>>> 2c59cd9 (Added home page and resport)
     implementation project(':capacitor-app')
 
 }

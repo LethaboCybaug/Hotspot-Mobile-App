@@ -1,0 +1,38 @@
+/* 223005357 M Ndlovu */
+.alerts-container {
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.alerts-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+  color: black;
+}
+
+.alerts-header h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.bell-icon {
+  margin-right: 8px;
+}

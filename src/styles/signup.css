@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Base styles */
 * {
   box-sizing: border-box;
@@ -138,3 +139,145 @@ body {
     font-size: 1rem;
   }
 }
+=======
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.signup-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.signup-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #d60000;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Form */
+.signup-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #d60000;
+  box-shadow: 0 0 0 2px rgba(214, 0, 0, 0.1);
+}
+
+/* Sign Up button */
+.signup-button {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #d60000;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.signup-button:hover {
+  background-color: #b30000;
+}
+
+/* Gmail button */
+.gmail-signup-button {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 1rem;
+  background-color: #fff;
+  color: #d60000;
+  border: 2px solid #d60000;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gmail-signup-button:hover {
+  background-color: #d60000;
+  color: #fff;
+}
+
+/* Divider text */
+.divider {
+  margin: 1.5rem 0;
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Back to Sign In */
+.signin-navigation-button {
+  background-color: transparent;
+  color: #333;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.signin-navigation-button:hover {
+  color: #d60000;
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+  .signup-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+
+  .signup-title {
+    font-size: 2rem;
+  }
+
+  .signup-button,
+  .gmail-signup-button {
+    font-size: 1rem;
+  }
+}
+>>>>>>> 2c59cd9 (Added home page and resport)

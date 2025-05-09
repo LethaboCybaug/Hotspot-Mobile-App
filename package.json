@@ -12,25 +12,22 @@
   "dependencies": {
     "@capacitor-community/text-to-speech": "^6.0.0",
     "@capacitor/app": "^7.0.1",
-<<<<<<< HEAD
-=======
     "@ionic/react": "^8.5.6",
->>>>>>> 2c59cd9 (Added home page and resport)
     "body-parser": "^2.2.0",
     "bootstrap": "^5.3.5",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "framer-motion": "^12.9.4",
+    "leaflet": "^1.9.4",
+    "leaflet-routing-machine": "^3.2.12",
+    "mapbox-gl": "^3.12.0",
     "mysql": "^2.18.1",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
-<<<<<<< HEAD
-    "react-dom": "^19.0.0"
-=======
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "react-leaflet": "^5.0.0",
     "react-router-dom": "^6.30.0"
->>>>>>> 2c59cd9 (Added home page and resport)
   },
   "devDependencies": {
     "@capacitor/android": "^7.2.0",
@@ -40,7 +37,7 @@
     "@eslint/js": "^9.22.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.22.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",

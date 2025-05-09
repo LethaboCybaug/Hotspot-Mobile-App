@@ -2,15 +2,26 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaBell } from 'react-icons/fa';
-import './Alerts.css';
+import '../styles/Alerts.css';
+import { Capacitor } from '@capacitor/core';
+import { App } from '@capacitor/app';
 
 const Alerts = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/');
+    navigate('/homescreen');
   };
+useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      const handleBackButton = () => {
+        App.exitApp();
+      };
 
+      App.addListener('backButton', handleBackButton);
+      return () => App.removeAllListeners();
+    }
+  }, []);
   return (
     <div className="alerts-container">
       <div className="alerts-header">

@@ -1,21 +1,33 @@
 // 223005357 M Ndlovu
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ReportIncident.css';
+import '../styles/ReportIncident.css';
 import { FaArrowLeft, FaCamera } from 'react-icons/fa';
+import { Capacitor } from '@capacitor/core';
+import { App } from '@capacitor/app';
 const ReportIncident = () => {
   const navigate = useNavigate();
+  
 
   const handleBack = () => {
-    navigate('/'); //
+    navigate('/homescreen'); //
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // logic to handle form submission
-    navigate('/'); //
+    
+    navigate('/'); 
   };
+useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      const handleBackButton = () => {
+        App.exitApp();
+      };
 
+      App.addListener('backButton', handleBackButton);
+      return () => App.removeAllListeners();
+    }
+  }, []);
   return (
     <div className="report-incident-container">
       <div className="header">

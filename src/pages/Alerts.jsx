@@ -1,5 +1,5 @@
 // 223005357 M Ndlovu
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaBell } from 'react-icons/fa';
 import '../styles/Alerts.css';
@@ -12,7 +12,7 @@ const Alerts = () => {
   const handleBack = () => {
     navigate('/homescreen');
   };
-useEffect(() => {
+  useEffect(() => {
     if (Capacitor.isNativePlatform()) {
       const handleBackButton = () => {
         App.exitApp();

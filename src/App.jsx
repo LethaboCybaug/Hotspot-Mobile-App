@@ -7,7 +7,9 @@ import SignInScreen from './pages/SignInScreen';
 import SignUpScreen from './pages/SignUpScreen';
 import Report from './pages/Report';
 import Alerts from './pages/Alerts';
-
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
+import ViewProfile from './pages/ViewProfile'; 
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/report" element={<Report />} />
         <Route path="/alerts" element={<Alerts />} />
+        <Route path="/change-password" element={<EditProfile />} />
+        <Route path="/editprofile" element={<Profile />} />
+        <Route path="/changepassword" element={<ViewProfile />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

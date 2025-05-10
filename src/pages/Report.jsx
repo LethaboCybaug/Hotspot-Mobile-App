@@ -1,5 +1,5 @@
 // 223005357 M Ndlovu
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ReportIncident.css';
 import { FaArrowLeft, FaCamera } from 'react-icons/fa';

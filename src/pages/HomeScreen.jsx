@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import '../styles/Homess.css';
-import { FaBell, FaArrowLeft, FaHome, FaPlus, FaExclamationTriangle, FaRegEye, FaSearch } from 'react-icons/fa';
+import { FaBell, FaArrowLeft, FaHome, FaPlus, FaExclamationTriangle, FaRegEye, FaSearch, FaUserCog } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -32,16 +32,7 @@ const speak = (text) => {
   const utterance = new SpeechSynthesisUtterance(text);
   speechSynthesis.speak(utterance);
 };
-useEffect(() => {
-    if (Capacitor.isNativePlatform()) {
-      const handleBackButton = () => {
-        App.exitApp();
-      };
 
-      App.addListener('backButton', handleBackButton);
-      return () => App.removeAllListeners();
-    }
-  }, []);
 const HomeScreen = () => {
   const navigate = useNavigate();
   const [destinations, setDestinations] = useState('');
@@ -158,8 +149,8 @@ const HomeScreen = () => {
           incident.type === "Traffic"
             ? accidentIcon
             : incident.type === "Crime"
-            ? crimeIcon
-            : L.icon({
+              ? crimeIcon
+              : L.icon({
                 iconUrl:
                   "https://cdn-icons-png.flaticon.com/512/1146/1146869.png",
                 iconSize: [32, 32],
@@ -215,7 +206,7 @@ const HomeScreen = () => {
           router: L.Routing.osrmv1({
             serviceUrl: 'https://router.project-osrm.org/route/v1'
           }),
-          createMarker: function(i, wp, nWps) {
+          createMarker: function (i, wp, nWps) {
             return L.marker(wp.latLng, {
               draggable: true
             });
@@ -287,10 +278,12 @@ const HomeScreen = () => {
         <button className="floating-button" onClick={() => navigate('/report')}><FaPlus /></button>
       </div>
 
+
       <footer className="footer">
         <div className="nav-item active"><FaHome /><span>Home</span></div>
         <div className="nav-item" onClick={() => navigate('/report')}><FaExclamationTriangle /><span>Report</span></div>
         <div className="nav-item" onClick={() => navigate('/alerts')}><FaRegEye /><span>Alerts</span></div>
+        <div className="nav-item" onClick={() => navigate('/viewprofile')}><FaUserCog /><span>Account Settings</span></div>
       </footer>
     </div>
   );

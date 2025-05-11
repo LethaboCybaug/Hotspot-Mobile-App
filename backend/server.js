@@ -1,8 +1,17 @@
-<<<<<<< HEAD
-const express = require('express');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+//importing required modules
+import express from "express";
+import mysql from "mysql2";
+import bodyParser from "body-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+
+//Install dotenv
+//Install mysql2
+//Run npm install from the package.json file
+
+// Load environment variables from .env file
+// This is important for security and to avoid hardcoding sensitive information
+dotenv.config();
 
 const app = express();
 app.use(cors());

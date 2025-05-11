@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+database_script.sql
+*.sql
+database_script.sql
+database_script.sql

@@ -1,7 +1,6 @@
 -- ================================
 --  Database Schema for Traffic App
 -- ================================
-
 CREATE TABLE User (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
@@ -9,14 +8,12 @@ CREATE TABLE User (
     phone_number VARCHAR(20),
     role VARCHAR(50)
 );
-
 CREATE TABLE Location (
     location_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
     latitude FLOAT,
     longitude FLOAT
 );
-
 CREATE TABLE VoiceCommand (
     command_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
@@ -25,7 +22,6 @@ CREATE TABLE VoiceCommand (
     intent VARCHAR(100),
     FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
-
 CREATE TABLE Route (
     route_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
@@ -36,7 +32,6 @@ CREATE TABLE Route (
     FOREIGN KEY (origin_location_id) REFERENCES Location(location_id),
     FOREIGN KEY (destination_location_id) REFERENCES Location(location_id)
 );
-
 CREATE TABLE TrafficIncident (
     incident_id INT PRIMARY KEY AUTO_INCREMENT,
     reported_by INT,
@@ -48,7 +43,6 @@ CREATE TABLE TrafficIncident (
     FOREIGN KEY (reported_by) REFERENCES User(user_id),
     FOREIGN KEY (location_id) REFERENCES Location(location_id)
 );
-
 CREATE TABLE Alert (
     alert_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,

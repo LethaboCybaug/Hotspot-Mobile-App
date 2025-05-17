@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ViewProfile.css';
 
 const ViewProfile = () => {
   const [profile, setProfile] = useState({
-    username: 'No name',
-    email: 'No email',
-    phone: 'No phone',
-    address: 'No address',
-    profilePic: 'https://via.placeholder.com/150',
+    username: 'username',
+    email: 'john@example.com',
+    phone: '081 234 5678',
+    address: '123 Main Street, City',
+    profilePic: '',
   });
-
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Load profile data from localStorage
     setProfile({
       username: localStorage.getItem('username') || 'No name',
-      email: localStorage.getItem('email') || 'No email',
-      phone: localStorage.getItem('phone') || 'No phone',
-      address: localStorage.getItem('address') || 'No address',
-      profilePic: localStorage.getItem('profilePic') || 'https://via.placeholder.com/150',
+      email: localStorage.getItem('email') || 'john@example.com',
+      phone: localStorage.getItem('phone') || '081 234 5678',
+      address: localStorage.getItem('address') || '123 Main Street, City',
+      profilePic: localStorage.getItem('profilePic') || '',
     });
   }, []);
 
@@ -36,62 +35,78 @@ const ViewProfile = () => {
     }
   };
 
-  return (
-    <div className="profile-container">
-      <h1 className="profile-title">My Profile</h1>
+  const handleRemoveProfilePic = () => {
+    setProfile((prev) => ({ ...prev, profilePic: '' }));
+    localStorage.removeItem('profilePic');
+  };
 
-      {/* Profile Picture */}
-      <div className="profile-pic-container">
-        <img id="profile-pic" src={profile.profilePic} alt="Profile Picture" />
+  const handleProfileClick = () => {
+    if (!profile.profilePic) {
+      fileInputRef.current.click();
+    } else {
+      const choice = window.prompt('Type "view" to view profile picture, "edit" to change it, or "remove" to delete it.');
+      if (choice === 'view') {
+        window.open(profile.profilePic, '_blank');
+      } else if (choice === 'edit') {
+        fileInputRef.current.click();
+      } else if (choice === 'remove') {
+        handleRemoveProfilePic();
+      }
+    }
+  };
+
+  return (
+    <div className="view-profile-container" style={{ backgroundColor: 'white', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ width: '100%', maxWidth: '400px', textAlign: 'center', padding: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+          <button
+            onClick={() => navigate('/home')}
+            style={{ background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: 'black' }}
+          >
+            ←
+          </button>
+          <h1 style={{ flex: 1, textAlign: 'center', fontSize: '22px', margin: 0 }}>My Profile</h1>
+          <div style={{ width: '40px' }}></div>
+        </div>
+
+        <div className="profile-pic-wrapper" onClick={handleProfileClick} style={{ width: '80px', height: '80px', margin: '0 auto' }}>
+          <img
+            src={profile.profilePic || 'https://via.placeholder.com/80'}
+            alt="Profile"
+            className="profile-pic"
+            style={{ width: '80px', height: '80px' }}
+          />
+          <div className="plus-icon" style={{ width: '20px', height: '20px', fontSize: '14px', lineHeight: '20px' }}>+</div>
+        </div>
         <input
           type="file"
-          id="pic-upload"
           accept="image/*"
           style={{ display: 'none' }}
+          ref={fileInputRef}
           onChange={handleProfilePicChange}
         />
-        <button
-          id="change-pic-btn"
-          onClick={() => document.getElementById('pic-upload').click()}
-        >
-          Change Profile Picture
-        </button>
-      </div>
 
-      {/* Info Display */}
-      <div className="info-display">
-        <p>
-          <strong>Username:</strong> <span id="display-username">{profile.username}</span>
-        </p>
-        <p>
-          <strong>Email:</strong> <span id="display-email">{profile.email}</span>
-        </p>
-        <p>
-          <strong>Phone:</strong> <span id="display-phone">{profile.phone}</span>
-        </p>
-        <p>
-          <strong>Address:</strong> <span id="display-address">{profile.address}</span>
-        </p>
-      </div>
+        <div className="profile-details" style={{ marginTop: '20px', fontSize: '14px' }}>
+          <h2 style={{ fontSize: '18px' }}>{profile.username}</h2>
+          <p><strong>EMAIL:</strong> {profile.email}</p>
+          <p><strong>PHONE:</strong> {profile.phone}</p>
+          <p><strong>ADDRESS:</strong> {profile.address}</p>
+        </div>
 
-      {/* Action Buttons */}
-      <div className="actions">
-        <button
-          className="button-link"
-          onClick={() => navigate('/changepassword')} // Correct route
-        >
-          Change Password
-        </button>
-        <button
-          className="button-link"
-          onClick={() => navigate('/editprofile')} // Correct route
-        >
-          Edit My Details
-        </button>
-      </div>
-
-      <div id="password-change-msg" style={{ display: 'none', color: 'red', marginTop: '1rem' }}>
-        Password change feature coming soon.
+        <div style={{ marginTop: '30px' }}>
+          <button
+            style={{ backgroundColor: 'red', color: 'white', padding: '10px 20px', marginRight: '10px', border: 'none', borderRadius: '5px' }}
+            onClick={() => navigate('/edit-profile')}
+          >
+            Edit My Details
+          </button>
+          <button
+            style={{ backgroundColor: 'red', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px' }}
+            onClick={() => navigate('/changemypassword')}
+          >
+            Change Password
+          </button>
+        </div>
       </div>
     </div>
   );

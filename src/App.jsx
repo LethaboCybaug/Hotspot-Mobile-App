@@ -22,9 +22,9 @@ function App() {
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/report" element={<Report />} />
         <Route path="/alerts" element={<Alerts />} />
-        <Route path="/change-password" element={<EditProfile />} />
-        <Route path="/editprofile" element={<Profile />} />
-        <Route path="/changepassword" element={<ViewProfile />} />
+        <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/changepassword" element={<Profile />} />
+        <Route path="/viewprofile" element={<ViewProfile />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

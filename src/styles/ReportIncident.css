@@ -10,6 +10,32 @@
 }
 
 .report-incident-container {
+  background-color: white; /* Set page background */
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.submit-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+input,
+textarea {
+  background-color: white !important; /* Override grey */
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.report-incident-container {
   padding: 16px;
   font-family: Arial, sans-serif;
 }
@@ -59,7 +85,9 @@
   border: 1px solid #ccc;
   background-color: #f0f0f0;
   cursor: pointer;
+  color: black;                /* Black text */
 }
+
 
 .camera-icon {
   margin-right: 8px;
@@ -74,10 +102,12 @@
   margin-top: 16px;
   width: 100%;
   padding: 12px;
-  background-color: #666;
+  background-color: red !important;  /* Force red background */
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
 }
+
+

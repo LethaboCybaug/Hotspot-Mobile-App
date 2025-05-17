@@ -1,6 +1,8 @@
+// 223005357 M Ndlovu
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/ViewProfile.css';
+import { FaHome, FaBell, FaUser, FaMapMarkerAlt } from 'react-icons/fa';
+import '../styles/Alerts.css'; // Using shared styles
 
 const ViewProfile = () => {
   const [profile, setProfile] = useState({
@@ -10,6 +12,7 @@ const ViewProfile = () => {
     address: '123 Main Street, City',
     profilePic: '',
   });
+
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -44,7 +47,7 @@ const ViewProfile = () => {
     if (!profile.profilePic) {
       fileInputRef.current.click();
     } else {
-      const choice = window.prompt('Type "view" to view profile picture, "edit" to change it, or "remove" to delete it.');
+      const choice = window.prompt('Type "view" to view, "edit" to change, or "remove" to delete your profile picture.');
       if (choice === 'view') {
         window.open(profile.profilePic, '_blank');
       } else if (choice === 'edit') {
@@ -56,28 +59,58 @@ const ViewProfile = () => {
   };
 
   return (
-    <div className="view-profile-container" style={{ backgroundColor: 'white', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div style={{ width: '100%', maxWidth: '400px', textAlign: 'center', padding: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <button
-            onClick={() => navigate('/home')}
-            style={{ background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: 'black' }}
+    <div className="alerts-wrapper" style={{ backgroundColor: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Top Header */}
+      <div style={{ display: 'flex', alignItems: 'center', padding: '10px 16px', backgroundColor: 'white' }}>
+        <button
+          onClick={() => navigate('/home')}
+          style={{ background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer', color: 'black' }}
+        >
+          ←
+        </button>
+        <h1 style={{ flex: 1, textAlign: 'center', fontSize: '20px', margin: 0 }}>My Profile</h1>
+        <div style={{ width: '24px' }}></div>
+      </div>
+
+      <hr className="bottom-divider" />
+
+      {/* Profile Section */}
+      <div style={{ padding: '20px', textAlign: 'center' }}>
+        <div style={{ position: 'relative', width: '120px', height: '120px', margin: '0 auto' }} onClick={handleProfileClick}>
+          <img
+            src={profile.profilePic || 'https://via.placeholder.com/120'}
+            alt="Profile"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '50%',
+              border: '2px solid red',
+            }}
+          />
+          {/* Instagram-style + icon */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              color: 'white',
+              fontSize: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: '2px solid white',
+              cursor: 'pointer',
+            }}
           >
-            ←
-          </button>
-          <h1 style={{ flex: 1, textAlign: 'center', fontSize: '22px', margin: 0 }}>My Profile</h1>
-          <div style={{ width: '40px' }}></div>
+            +
+          </div>
         </div>
 
-        <div className="profile-pic-wrapper" onClick={handleProfileClick} style={{ width: '80px', height: '80px', margin: '0 auto' }}>
-          <img
-            src={profile.profilePic || 'https://via.placeholder.com/80'}
-            alt="Profile"
-            className="profile-pic"
-            style={{ width: '80px', height: '80px' }}
-          />
-          <div className="plus-icon" style={{ width: '20px', height: '20px', fontSize: '14px', lineHeight: '20px' }}>+</div>
-        </div>
         <input
           type="file"
           accept="image/*"
@@ -86,7 +119,8 @@ const ViewProfile = () => {
           onChange={handleProfilePicChange}
         />
 
-        <div className="profile-details" style={{ marginTop: '20px', fontSize: '14px' }}>
+        {/* Profile Info */}
+        <div style={{ marginTop: '20px', fontSize: '14px' }}>
           <h2 style={{ fontSize: '18px' }}>{profile.username}</h2>
           <p><strong>EMAIL:</strong> {profile.email}</p>
           <p><strong>PHONE:</strong> {profile.phone}</p>
@@ -106,6 +140,30 @@ const ViewProfile = () => {
           >
             Change Password
           </button>
+        </div>
+      </div>
+
+      {/* Spacer */}
+      <div style={{ flexGrow: 1 }} />
+
+      {/* Bottom Navigation */}
+      <hr className="bottom-divider" />
+      <div className="bottom-navigation">
+        <div className="nav-item" onClick={() => navigate('/home')}>
+          <FaHome />
+          <span>Home</span>
+        </div>
+        <div className="nav-item" onClick={() => navigate('/alerts')}>
+          <FaBell />
+          <span>Alerts</span>
+        </div>
+        <div className="nav-item" onClick={() => navigate('/profile')}>
+          <FaUser style={{ color: 'red' }} />
+          <span style={{ color: 'red' }}>Profile</span>
+        </div>
+        <div className="nav-item" onClick={() => navigate('/map')}>
+          <FaMapMarkerAlt />
+          <span>Map</span>
         </div>
       </div>
     </div>
